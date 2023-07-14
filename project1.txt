@@ -1,0 +1,61 @@
+//new tool nmap ::-
+1.Aim: To scan the entire IP range.
+Command: nmap <IP range>
+Example: nmap 162.16.121.125-135 (here IP range is separated by a dash )
+In our example, Nmap will scan the IP addresses from 162.16.121.25/24 to 162.16.121.35/24.
+
+2.Aim: To scan a specific port or entire port range.
+Command: nmap -p <numeric value> <IP>
+Example: nmap -p 80 192.168.20.128
+You can also scan all 65535 ports for your localhost computer by using this command–
+nmap -p 1-65535 localhost. 
+
+3.Aim: Host detection
+Command: Nmap -sP <target>
+Example: Nmap -sP 192.168.2.1/24
+In the above example, the “-sP” command will scan the list of devices running on the 192.168.2.1/24 subnet.
+
+4.Aim: To save the result of the Nmap scan to a file or XML.
+Command: nmap -oN output.txt example.com (This command will export Nmap scan into a text file)
+Command: nmap -oX output.xml example.com (This command will save the output of Nmap scanning in XML)
+
+5.Aim: To scan the fixed number of most popular ports. 
+Command: nmap –top-ports <numeric value> <IP address/Domain>
+Example: nmap –top-ports 15 196.134.5.67
+In our example, we have used the “–top-ports” option to specify that we need to scan the top 15 ports of the IP address 196.134.5.67
+
+6.Aim: To detect open ports.
+Command: nmap — open<IP address/domain name> 
+Example: nmap — open 198.152.45.33
+In the above example, we are using “–open” parameter with IP address 198.152.45.33 so that the Nmap command only shows us the ports with the open state. 
+
+7.Aim: To exclude the host/IP addresses for the scan.
+Command: nmap <range of IP address> — exclude<IP address to exclude>
+Example: nmap 172.16.121.1/24 — exclude 172.16.121.10
+In the above example, we are using the “– exclude”  command-line option to exclude IP address 172.16.121.10 from the scan.
+Note – “–exclude command” accepts single IP address, single host, specific ranges, and whole network
+
+8.Aim: Detection of services.
+Command: nmap -sV<IP>
+Example: nmap -sV 168.121.34.56
+In the above example, we are performing a version scan by using the “sV” command and it will give us a list of services with its versions.
+
+//new tool arp-scan ::-
+Local scan
+In example 1 we are going to find the internal networks running.
+sudo arp-scan -l
+
+MSC scan
+Now, we are going to see the MAC address of eth0 of the subnet mask
+sudo arp-scan -a
+
+Subnet
+Scan an IP network with the custom subnet.
+sudo arp-scan IP address / port
+
+All in one scan
+scanning a custom MAC address with a subnet
+sudo arp-scan -I eth0 --srcaddr=macaddress ipaddress/port
+
+
+//new tool ::-
